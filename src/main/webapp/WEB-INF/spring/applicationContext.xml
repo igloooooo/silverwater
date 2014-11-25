@@ -16,7 +16,7 @@
     <import resource="applicationContext-security.xml"/>
     <context:annotation-config/>
 
-    <context:component-scan base-package="au.com.iglooit.hellscream.service, au.com.iglooit.hellscream.controller, au.com.iglooit.hellscream.aop"/>
+    <context:component-scan base-package="au.com.iglooit.silverwater.service, au.com.iglooit.silverwater.controller, au.com.iglooit.silverwater.aop"/>
 
     <aop:aspectj-autoproxy />
 

@@ -37,9 +37,9 @@
         <custom-filter position="PRE_AUTH_FILTER" ref="gaeFilter" />
     </http>
 
-    <b:bean id="gaeEntryPoint" class="au.com.iglooit.hellscream.security.GoogleAccountsAuthenticationEntryPoint" />
+    <b:bean id="gaeEntryPoint" class="au.com.iglooit.silverwater.security.GoogleAccountsAuthenticationEntryPoint" />
 
-    <b:bean id="gaeFilter" class="au.com.iglooit.hellscream.security.GaeAuthenticationFilter">
+    <b:bean id="gaeFilter" class="au.com.iglooit.silverwater.security.GaeAuthenticationFilter">
         <b:property name="authenticationManager" ref="authenticationManager"/>
         <b:property name="failureHandler">
             <b:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
@@ -52,7 +52,7 @@
         </b:property>
     </b:bean>
 
-    <b:bean id="facebookLoginHandler" class="au.com.iglooit.hellscream.security.FacebookLoginHandler">
+    <b:bean id="facebookLoginHandler" class="au.com.iglooit.silverwater.security.FacebookLoginHandler">
         <b:property name="authenticationManager" ref="authenticationManager"/>
         <b:property name="failureHandler">
             <b:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
@@ -65,7 +65,7 @@
         </b:property>
     </b:bean>
 
-    <b:bean id="localLoginHandler" class="au.com.iglooit.hellscream.security.LocalLoginHandler">
+    <b:bean id="localLoginHandler" class="au.com.iglooit.silverwater.security.LocalLoginHandler">
         <b:property name="authenticationManager" ref="authenticationManager"/>
         <b:property name="failureHandler">
             <b:bean class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
@@ -82,9 +82,9 @@
         <authentication-provider ref="gaeAuthenticationProvider"/>
     </authentication-manager>
 
-    <b:bean id="gaeAuthenticationProvider" class="au.com.iglooit.hellscream.security.GoogleAccountsAuthenticationProvider">
+    <b:bean id="gaeAuthenticationProvider" class="au.com.iglooit.silverwater.security.GoogleAccountsAuthenticationProvider">
     </b:bean>
 
-    <b:bean id="userRegistry" class="au.com.iglooit.hellscream.security.GaeDatastoreUserRegistry" />
+    <b:bean id="userRegistry" class="au.com.iglooit.silverwater.security.GaeDatastoreUserRegistry" />
 
 </b:beans>
