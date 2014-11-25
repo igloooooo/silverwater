@@ -13,113 +13,99 @@
 
     <decorator:head />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>TravelSite Theme</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 
+    <!-- Mobile Specific
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="author" content="">
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
-    <!-- Le styles -->
-    <link href="/assets/wro/basic-header.min.css" rel="stylesheet">
+    <!-- Java Script
+    ================================================== -->
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.24.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/camera.min.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/selectnav.min.js"></script>
+    <!--<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyB3tShW1hLlV2lYW8_sCVln6TLF2bWvgU8"></script>-->
+    <script type="text/javascript" src="js/jquery.googlemaps.1.01.min.js"></script>
+    <script type="text/javascript" src="js/theme.js"></script>
 
-    <%--<link href="/assets/css/bootstrap.css" rel="stylesheet">--%>
-
-    <%--<link href="/assets/css/style.css" rel="stylesheet">--%>
-
-    <%--<link href="/assets/css/camera.css" rel="stylesheet">--%>
-
-    <%--<link href="/assets/css/icons.css" rel="stylesheet">--%>
-
-    <%--<link rel="stylesheet" id="main-color" href="/assets/css/skin-orange.css" media="screen"/>--%>
-
-    <%--<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">--%>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-
-    <!--[if lt IE 9]>
-
-    <script src="/assets/js/html5shiv.js"></script>
-
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <!-- Fav and touch icons -->
-
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
-
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
-
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
-
-    <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
-
-    <link rel="shortcut icon" href="img/ico/favicon.png">
-
-    <!-- jquery -->
-    <script src="/assets/wro/basic-header.min.js"></script>
 
 </head>
 
-<body class="boxed">
 
-<div class="body">
+<div id="slider-wrap">
+	<div class="camera_wrap" id="camera-wrap">
+		<div data-src="images/uploads/1280x800/st-basil.jpg">
 
-<!-- Navigation -->
+			<div class="camera_caption moveFromBottom camera_text_center">
+				<div class="caption_slider h2">
+					30% Discount : 3 days travel to Moscow
+				</div>
+			</div>
 
-<header>
+		</div>
+		<div data-src="images/uploads/1280x800/castle-schwerin.jpg">
 
-    <%@include file="menu.jsp"%>
+        	<div class="camera_caption moveFromLeft camera_text_center">
+				<div class="caption_slider h2">
+					Luxurious holiday in Castle
+				</div>
+			</div>
 
-</header>
+        </div>
+		<div data-src="images/uploads/1280x800/moscow.jpg">
 
-<div class="text-center">
+            <div class="camera_caption fadeIn camera_text_center">
+				<div class="caption_slider h2">
+					30% Discount : 3 days travel to Moscow
+				</div>
+			</div>
 
-    <img src="/assets/img/sha.png" class="slidershadow" alt="">
+        </div>
+		<div data-src="images/uploads/1280x800/temple-kyoto.jpg">
 
+        	<div class="camera_caption moveFromBottom camera_text_center">
+				<div class="caption_slider h2">
+					Japan most interesting spot
+				</div>
+			</div>
+
+        </div>
+
+
+	</div><!--camera-wrap -->
 </div>
 
-<!-- /end header -->
+<div id="wrapper">
+	<div id="container">
 
-<div class="container">
+        <%@include file="menu.jsp"%>
 
-    <decorator:body />
+        <decorator:body/>
 
-</div>
+	</div>
+	<!--container -->
 
-<!-- FOOTER BEGIN
-
-================================================== -->
-<div>
     <%@include file="footer.jsp"%>
-</div>
-
-<!-- FOOTER END
-
-================================================== -->
 
 </div>
-
-<!-- /.body -->
-
-<!-- Le javascript
-
-    ================================================== -->
-
-<!-- Placed at the end of the document so the pages load faster -->
-
-<%--<script src="/assets/js/bootstrap.js"></script>--%>
-
-<%--<script src="/assets/js/plugins.js"></script>--%>
-
-<%--<script src="/assets/js/custom.js"></script>--%>
-<script src="/assets/wro/basic-footer.min.js"></script>
-
-
-
-<!--BEGIN DEMO PANEL
-
-================================================== -->
-
-<%@include file="feedback.jsp"%>
+<!--wrapper -->
 
 </body>
 
