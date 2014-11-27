@@ -31,7 +31,7 @@
 
     <function>
         <name>formatDate</name>
-        <function-class>au.com.iglooit.hellscream.utils.DateUtils</function-class>
+        <function-class>au.com.iglooit.silverwater.utils.DateUtils</function-class>
         <function-signature>java.lang.String formatDate(java.util.Date)</function-signature>
     </function>
 </taglib>

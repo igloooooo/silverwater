@@ -50,7 +50,7 @@
                         <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
                             <property name="classesToBeBound">
                                 <list>
-                                    <value>au.com.iglooit.hellscream.model.xml.Version</value>
+                                    <value>au.com.iglooit.silverwater.model.xml.Version</value>
                                 </list>
                             </property>
                         </bean>

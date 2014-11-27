@@ -15,8 +15,6 @@
 
     <!-- Basic Page Needs
     ================================================== -->
-    <meta charset="utf-8">
-    <title>TravelSite Theme</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 
@@ -26,8 +24,9 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <%--<link href="/assets/wro/basic-header.min.css" rel="stylesheet">--%>
 
     <!-- Java Script
     ================================================== -->
@@ -48,10 +47,10 @@
 
 </head>
 
-
+<body class="home">
 <div id="slider-wrap">
 	<div class="camera_wrap" id="camera-wrap">
-		<div data-src="images/uploads/1280x800/st-basil.jpg">
+		<div data-src="/assets/images/uploads/1280x800/st-basil.jpg">
 
 			<div class="camera_caption moveFromBottom camera_text_center">
 				<div class="caption_slider h2">
@@ -60,7 +59,7 @@
 			</div>
 
 		</div>
-		<div data-src="images/uploads/1280x800/castle-schwerin.jpg">
+		<div data-src="/assets/images/uploads/1280x800/castle-schwerin.jpg">
 
         	<div class="camera_caption moveFromLeft camera_text_center">
 				<div class="caption_slider h2">
@@ -69,7 +68,7 @@
 			</div>
 
         </div>
-		<div data-src="images/uploads/1280x800/moscow.jpg">
+		<div data-src="/assets/images/uploads/1280x800/moscow.jpg">
 
             <div class="camera_caption fadeIn camera_text_center">
 				<div class="caption_slider h2">
@@ -78,7 +77,7 @@
 			</div>
 
         </div>
-		<div data-src="images/uploads/1280x800/temple-kyoto.jpg">
+		<div data-src="/assets/images/uploads/1280x800/temple-kyoto.jpg">
 
         	<div class="camera_caption moveFromBottom camera_text_center">
 				<div class="caption_slider h2">
@@ -106,6 +105,8 @@
 
 </div>
 <!--wrapper -->
+
+<script src="/assets/wro/basic-footer.min.js"></script>
 
 </body>
 

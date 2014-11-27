@@ -169,7 +169,7 @@
 			<div class="one-fourth">
 				<div class="post-item">
 					<div class="image-place">
-						<img src="images/uploads/220x135/auckland-city.jpg" alt="image" />
+						<img src="/assets/images/uploads/220x135/auckland-city.jpg" alt="image" />
 					</div>
 					<div class="post-content">
 						<h4 class="post-title">Maldives Travel</h4>
@@ -185,7 +185,7 @@
 			<div class="one-fourth">
 				<div class="post-item">
 					<div class="image-place">
-						<img src="images/uploads/220x135/rio-de-jainero.jpg" alt="image" />
+						<img src="/assets/images/uploads/220x135/rio-de-jainero.jpg" alt="image" />
 					</div>
 					<div class="post-content">
 						<h4 class="post-title">Maldives Travel</h4>
@@ -201,7 +201,7 @@
 			<div class="one-fourth">
 				<div class="post-item">
 					<div class="image-place">
-						<img src="images/uploads/220x135/stupa.jpg" alt="image" />
+						<img src="/assets/images/uploads/220x135/stupa.jpg" alt="image" />
 					</div>
 					<div class="post-content">
 						<h4 class="post-title">Maldives Travel</h4>
@@ -217,7 +217,7 @@
 			<div class="one-fourth last">
 				<div class="post-item">
 					<div class="image-place">
-						<img src="images/uploads/220x135/st-basil-2.jpg" alt="image" />
+						<img src="/assets/images/uploads/220x135/st-basil-2.jpg" alt="image" />
 					</div>
 					<div class="post-content">
 						<h4 class="post-title">Maldives Travel</h4>

@@ -2,10 +2,12 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
              version="1.0">
-    <persistence-unit name="hellscream">
+    <persistence-unit name="silverwater">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <class>au.com.iglooit.silverwater.model.entity.BaseEntity</class>
         <class>au.com.iglooit.silverwater.model.entity.IGUser</class>
+        <class>au.com.iglooit.silverwater.model.entity.Broker</class>
+        <class>au.com.iglooit.silverwater.model.entity.Suburb</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>

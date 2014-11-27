@@ -16,7 +16,7 @@ import java.util.*;
 public abstract class AbstractProperties implements Map<String, String> {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractProperties.class);
     private Map<String, String> cache = new HashMap<String, String>();
-    private static final String PROPERTIES_BASE_LOCATION = "au.com.iglooit.hellscream.properties";
+    private static final String PROPERTIES_BASE_LOCATION = "au.com.iglooit.silverwater.properties";
 
     /**
      * Method to load properties

@@ -141,7 +141,7 @@
                 <version>3.3.0-release</version>
                 <configuration>
                     <api>JPA</api>
-                    <persistenceUnitName>hellscream</persistenceUnitName>
+                    <persistenceUnitName>silverwater</persistenceUnitName>
                     <log4jConfiguration>src/main/resources/log4j.properties</log4jConfiguration>
                     <verbose>true</verbose>
                 </configuration>
