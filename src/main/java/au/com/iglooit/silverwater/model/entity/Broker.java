@@ -1,14 +1,23 @@
 package au.com.iglooit.silverwater.model.entity;
 
+import au.com.iglooit.silverwater.model.GeoIndexTypeConstant;
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.search.Document;
+import com.google.appengine.api.search.Field;
+import com.google.appengine.api.search.GeoPoint;
+import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.Entity;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Broker extends BaseEntity {
+    private static final String DEFAULT_DEFAULT_IMG = "/assets/img/default-broker.jpeg";
     private String name;
     private String surname;
-    private String furname;
+    private String forename;
     private String email;
     private String address1;
     private String address2;
@@ -18,6 +27,100 @@ public class Broker extends BaseEntity {
     private String mobile;
     private String bio;
     private Integer rank = 3;
+    private Date lastUpdateTime;
+    private Date postDate;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
+    private String postcode;
+    private String suburb;
+    private String formatAddress;
+    private String imageResourceId;
+    private String imageFileName = DEFAULT_DEFAULT_IMG;
+    private String canonicalSlugId;
+
+    public static String getDefaultDefaultImg() {
+        return DEFAULT_DEFAULT_IMG;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Date getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getImageResourceId() {
+        return imageResourceId;
+    }
+
+    public void setImageResourceId(String imageResourceId) {
+        this.imageResourceId = imageResourceId;
+    }
+
+    public String getImageFileName() {
+        return imageFileName;
+    }
+
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
+
+    public String getCanonicalSlugId() {
+        return canonicalSlugId;
+    }
+
+    public void setCanonicalSlugId(String canonicalSlugId) {
+        this.canonicalSlugId = canonicalSlugId;
+    }
+
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public void setSuburb(String suburb) {
+        this.suburb = suburb;
+    }
+
+    public String getFormatAddress() {
+        return formatAddress;
+    }
+
+    public void setFormatAddress(String formatAddress) {
+        this.formatAddress = formatAddress;
+    }
 
     public String getName() {
         return name;
@@ -35,12 +138,12 @@ public class Broker extends BaseEntity {
         this.surname = surname;
     }
 
-    public String getFurname() {
-        return furname;
+    public String getForename() {
+        return forename;
     }
 
-    public void setFurname(String furname) {
-        this.furname = furname;
+    public void setForename(String forename) {
+        this.forename = forename;
     }
 
     public String getEmail() {
@@ -117,11 +220,38 @@ public class Broker extends BaseEntity {
 
     @Override
     public Document toFullTextDocument() {
-        return null;
+        Document.Builder builder = Document.newBuilder()
+                        .setId(KeyFactory.keyToString(getKey()))
+                        .addField(Field.newBuilder().setName("name").setText(getName()))
+                        .addField(Field.newBuilder().setName("email").setText(getEmail()))
+                        .addField(Field.newBuilder().setName("fullName").setText(getForename() + "" + getSurname()))
+                        .addField(Field.newBuilder().setName("bio").setText(getBio()))
+                        .addField(Field.newBuilder().setName("phone").setText(getPhone()));
+                if (latitude != null && longitude != null) {
+                    builder.addField(Field.newBuilder().setName("point").setGeoPoint(
+                            new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
+                }
+
+                builder.addField(Field.newBuilder().setName("address").setText(
+                        StringUtils.isBlank(getFormatAddress()) ? "" : getFormatAddress()))
+                        .addField(Field.newBuilder().setName("suburb").setText(
+                                StringUtils.isBlank(getSuburb()) ? "" : getSuburb()))
+                        .addField(Field.newBuilder().setName("postcode").setText(
+                                StringUtils.isBlank(getPostcode()) ? "" : getPostcode()))
+                        .addField(Field.newBuilder().setName("mobile").setText(getMobile()));
+                return builder.build();
     }
 
     @Override
     public Document toGeoDocument() {
-        return null;
+        Document.Builder builder = Document.newBuilder()
+                        .setId("geo-" + KeyFactory.keyToString(getKey()));
+                if (latitude != null && longitude != null) {
+                    builder.addField(Field.newBuilder().setName("point").setGeoPoint(
+                            new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
+                }
+                builder.addField(Field.newBuilder().setName("type").setText(GeoIndexTypeConstant.BROKER_TYPE));
+
+                return builder.build();
     }
 }
