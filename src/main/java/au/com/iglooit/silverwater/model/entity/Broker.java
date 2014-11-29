@@ -221,37 +221,37 @@ public class Broker extends BaseEntity {
     @Override
     public Document toFullTextDocument() {
         Document.Builder builder = Document.newBuilder()
-                        .setId(KeyFactory.keyToString(getKey()))
-                        .addField(Field.newBuilder().setName("name").setText(getName()))
-                        .addField(Field.newBuilder().setName("email").setText(getEmail()))
-                        .addField(Field.newBuilder().setName("fullName").setText(getForename() + "" + getSurname()))
-                        .addField(Field.newBuilder().setName("bio").setText(getBio()))
-                        .addField(Field.newBuilder().setName("phone").setText(getPhone()));
-                if (latitude != null && longitude != null) {
-                    builder.addField(Field.newBuilder().setName("point").setGeoPoint(
-                            new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
-                }
+                .setId(KeyFactory.keyToString(getKey()))
+                .addField(Field.newBuilder().setName("name").setText(getName()))
+                .addField(Field.newBuilder().setName("email").setText(getEmail()))
+                .addField(Field.newBuilder().setName("fullName").setText(getForename() + "" + getSurname()))
+                .addField(Field.newBuilder().setName("bio").setText(getBio()))
+                .addField(Field.newBuilder().setName("phone").setText(getPhone()));
+        if (latitude != null && longitude != null) {
+            builder.addField(Field.newBuilder().setName("point").setGeoPoint(
+                    new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
+        }
 
-                builder.addField(Field.newBuilder().setName("address").setText(
-                        StringUtils.isBlank(getFormatAddress()) ? "" : getFormatAddress()))
-                        .addField(Field.newBuilder().setName("suburb").setText(
-                                StringUtils.isBlank(getSuburb()) ? "" : getSuburb()))
-                        .addField(Field.newBuilder().setName("postcode").setText(
-                                StringUtils.isBlank(getPostcode()) ? "" : getPostcode()))
-                        .addField(Field.newBuilder().setName("mobile").setText(getMobile()));
-                return builder.build();
+        builder.addField(Field.newBuilder().setName("address").setText(
+                StringUtils.isBlank(getFormatAddress()) ? "" : getFormatAddress()))
+                .addField(Field.newBuilder().setName("suburb").setText(
+                        StringUtils.isBlank(getSuburb()) ? "" : getSuburb()))
+                .addField(Field.newBuilder().setName("postcode").setText(
+                        StringUtils.isBlank(getPostcode()) ? "" : getPostcode()))
+                .addField(Field.newBuilder().setName("mobile").setText(getMobile()));
+        return builder.build();
     }
 
     @Override
     public Document toGeoDocument() {
         Document.Builder builder = Document.newBuilder()
-                        .setId("geo-" + KeyFactory.keyToString(getKey()));
-                if (latitude != null && longitude != null) {
-                    builder.addField(Field.newBuilder().setName("point").setGeoPoint(
-                            new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
-                }
-                builder.addField(Field.newBuilder().setName("type").setText(GeoIndexTypeConstant.BROKER_TYPE));
+                .setId("geo-" + KeyFactory.keyToString(getKey()));
+        if (latitude != null && longitude != null) {
+            builder.addField(Field.newBuilder().setName("point").setGeoPoint(
+                    new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
+        }
+        builder.addField(Field.newBuilder().setName("type").setText(GeoIndexTypeConstant.BROKER_TYPE));
 
-                return builder.build();
+        return builder.build();
     }
 }
