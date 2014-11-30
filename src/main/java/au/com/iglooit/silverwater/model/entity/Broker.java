@@ -218,6 +218,14 @@ public class Broker extends BaseEntity {
         this.rank = rank;
     }
 
+    /**
+     * address1 + address2 + address3
+     * @return
+     */
+    public String convertToAddress() {
+        return address1 + " " + address2 + " " + address3;
+    }
+
     @Override
     public Document toFullTextDocument() {
         Document.Builder builder = Document.newBuilder()
