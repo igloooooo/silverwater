@@ -2,7 +2,7 @@
 	<footer id="footer">
 		<div class="wrap">
 			<div class="one-fourth">
-				<div class="theme-logo"><strong>Travel</strong>Site</div>
+				<div class="theme-logo"><strong>Broker</strong>Map</div>
 				<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 				<p>Integer hendrerit bibendum luctus. Nam vel porttitor leo</p>
 			</div>

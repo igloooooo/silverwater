@@ -1,4 +1,4 @@
-<%@include file="globe.jsp" %>
+<%@include file="../globe.jsp" %>
 <html>
 <head>
     <meta name="description" content="service job search">
@@ -8,7 +8,7 @@
     <div class="subheader">
         <div class="left">
             <span class="page-title">Browse</span>
-            <span class="page-desc">Lorem ipsum dolor sit amet consectuer adisplicing</span></div>
+            <span class="page-desc">Browse All Brokers</span></div>
     </div>
     <!--subheader -->
 

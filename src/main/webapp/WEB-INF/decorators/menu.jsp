@@ -7,7 +7,7 @@
 <!--start header -->
 <header id="header">
 	<div id="logo">
-		<a href="index.html"><strong>Travel</strong>Site</a>
+		<a href="/home"><strong>Broker</strong>Map</a>
 	</div>
 	<div id="searchbox">
 		<form action="#">

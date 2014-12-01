@@ -9,7 +9,7 @@
 
     <meta charset="utf-8">
 
-    <title><decorator:title default="Welcome to ..."></decorator:title></title>
+    <title><decorator:title default="Welcome to BrokerMap."></decorator:title></title>
 
     <decorator:head />
 
@@ -30,17 +30,17 @@
 
     <!-- Java Script
     ================================================== -->
-    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.24.custom.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/camera.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-    <script type="text/javascript" src="js/selectnav.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-ui-1.8.24.custom.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.mobile.customized.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/assets/js/camera.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="/assets/js/selectnav.min.js"></script>
     <!--<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyB3tShW1hLlV2lYW8_sCVln6TLF2bWvgU8"></script>-->
-    <script type="text/javascript" src="js/jquery.googlemaps.1.01.min.js"></script>
-    <script type="text/javascript" src="js/theme.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.googlemaps.1.01.min.js"></script>
+    <script type="text/javascript" src="/assets/js/theme.js"></script>
 
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

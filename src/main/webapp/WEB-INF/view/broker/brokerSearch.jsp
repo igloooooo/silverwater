@@ -5,16 +5,16 @@
     <title><spring:message code="home.title"/></title>
 </head>
 <body>
-    <div class="subheader">
-        <div class="left">
-            <span class="page-title">Browse</span>
-            <span class="page-desc">Lorem ipsum dolor sit amet consectuer adisplicing</span></div>
-    </div>
-    <!--subheader -->
+<div class="subheader">
+    <div class="left">
+        <span class="page-title">Search</span>
+        <span class="page-desc">Find your broker</span></div>
+</div>
+<!--subheader -->
 
 
     <div id="content">
-    <div class="one-third">
+        <div class="one-third">
 
 
         <div id="searchmodule">
@@ -133,7 +133,7 @@
     </div>
     <!--one third -->
 
-    <div class="two-third last">
+        <div class="two-third last">
 
         <div class="post-item post-thumb-hor">
             <div class="image-place">
@@ -270,7 +270,8 @@
     </div>
     <!--two third -->
 
-    <br class="clear"/>
+        <br class="clear"/>
     </div>
+<!--content -->
 </body>
 </html>
