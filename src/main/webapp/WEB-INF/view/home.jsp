@@ -9,11 +9,11 @@
 			<div class="two-third">
 				<div id="searchmodule" class="tabs">
 					<ul class="tab-control">
-						<li><a href="#flight-search">Search Flight</a></li>
-						<li><a href="#hotel-search">Find Hotel</a></li>
-						<li><a href="#travel-search">Holiday Plan</a></li>
+						<li><a href="#quick-search">Quick Search</a></li>
+						<li><a href="#local-search">Find Nearest</a></li>
+						<li><a href="#advance-search">Advance</a></li>
 					</ul>
-					<div id="flight-search" class="tab-content">
+					<div id="quick-search" class="tab-content">
 						<form action="#">
 							<div class="field">
 								<label for="flight-from">From:</label>
@@ -53,7 +53,7 @@
 					</div>
 					<!--flight search -->
 
-					<div id="hotel-search" class="tab-content">
+					<div id="local-search" class="tab-content">
 						<form action="#">
 							<div class="field">
 								<label for="hotel-to">City:</label>
@@ -83,7 +83,7 @@
 					</div>
 					<!--hotel search -->
 
-					<div id="travel-search" class="tab-content">
+					<div id="advance-search" class="tab-content">
 						<form action="#">
 							<div class="field">
 								<label for="travel-from">From:</label>

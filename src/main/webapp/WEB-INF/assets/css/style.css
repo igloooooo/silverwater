@@ -63,7 +63,7 @@ br.clear{ clear:both; height:1px; overflow:hidden; }
 #logo a, .theme-logo a{ color:#606d80; }
 #logo strong, .theme-logo strong{ color:#2b4d7f; }
 #searchbox{ float:right; padding:11px 0 10px 10px; }
-#searchbox button{ background:#ca1830 url(../images/icon-search.png) no-repeat 5px 5px; width:26px; height:26px; line-height:20px; display:inline-block; border-color:#ca1830; }
+#searchbox button{ background:#ca1830 url(../images/icon-search.png) no-repeat 5px 5px; width:26px; height:26px; line-height:20px; float: right; display:inline-block; border-color:#ca1830; }
 .selectnav { display: none; }
 .home #header{ margin-bottom:250px; }
 

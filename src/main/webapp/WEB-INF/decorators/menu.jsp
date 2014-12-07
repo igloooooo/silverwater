@@ -10,23 +10,24 @@
 		<a href="/home"><strong>Broker</strong>Map</a>
 	</div>
 	<div id="searchbox">
-		<form action="#">
-			<input type="text" id="search" placeholder="Search" />
+		<form action="/search">
+			<input type="text" name="q" placeholder="Search" />
 			<button type="submit"></button>
 		</form>
 	</div>
 	<div id="navigation">
 		<ul id="nav">
-			<li class="selected"><a href="index.html">Home</a></li>
-			<li><a href="browse.html">Browse</a>
-				<ul>
-					<li><a href="browse-result.html">Browse Result</a></li>
-					<li><a href="browse-detail.html">Browse Detail</a></li>
-				</ul>
+			<li class="selected"><a href="/home">Home</a></li>
+			<li><a href="/howitworks">How it works</a>
 			</li>
-			<li><a href="blog.html">Blog</a></li>
-			<li><a href="contact.html">Contact</a></li>
-			<li><a href="element.html">Element</a></li>
+			<li><a href="/broker">Brokers</a></li>
+			<li><a href="/aboutUs">About Us</a>
+                <ul>
+                    <li><a href="/company">Company</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+					<li><a href="/faq">FAQ</a></li>
+				</ul>
+            </li>
 		</ul>
 	</div>
 </header>

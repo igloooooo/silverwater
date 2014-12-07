@@ -18,4 +18,22 @@ public class HomeController {
         LOG.info("Welcome home! The client locale is {}.", locale);
         return modelAndView;
     }
+
+    @RequestMapping(value = "/about-us", method = RequestMethod.GET)
+    public ModelAndView aboutUsPage() {
+        ModelAndView modelAndView = new ModelAndView("about-us");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/contact-us", method = RequestMethod.GET)
+    public ModelAndView contactUsPage() {
+        ModelAndView modelAndView = new ModelAndView("contact-us");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/how-it-works", method = RequestMethod.GET)
+    public ModelAndView howItWorksPage() {
+        ModelAndView modelAndView = new ModelAndView("how-it-works");
+        return modelAndView;
+    }
 }
