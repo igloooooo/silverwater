@@ -25,6 +25,7 @@ public class BrokerController {
     @RequestMapping(value = "/broker", method = RequestMethod.GET)
     public ModelAndView brokerList() {
         ModelAndView modelAndView = new ModelAndView("broker/brokerAll");
+        modelAndView.addObject("brokerList", brokerDAO.findAllBrokers());
         return modelAndView;
     }
 

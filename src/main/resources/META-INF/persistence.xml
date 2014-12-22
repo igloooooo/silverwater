@@ -8,6 +8,7 @@
         <class>au.com.iglooit.silverwater.model.entity.IGUser</class>
         <class>au.com.iglooit.silverwater.model.entity.Broker</class>
         <class>au.com.iglooit.silverwater.model.entity.Suburb</class>
+        <class>au.com.iglooit.silverwater.model.entity.Statistic</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>

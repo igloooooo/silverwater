@@ -9,8 +9,10 @@ import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Broker extends BaseEntity {
@@ -26,6 +28,8 @@ public class Broker extends BaseEntity {
     private String fax;
     private String mobile;
     private String bio;
+    private String title;
+    private Set<String> suburbList = Collections.emptySet();
     private Integer rank = 3;
     private Date lastUpdateTime;
     private Date postDate;
@@ -218,6 +222,22 @@ public class Broker extends BaseEntity {
         this.rank = rank;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Set<String> getSuburbList() {
+        return suburbList;
+    }
+
+    public void setSuburbList(Set<String> suburbList) {
+        this.suburbList = suburbList;
+    }
+
     /**
      * address1 + address2 + address3
      * @return
@@ -232,18 +252,20 @@ public class Broker extends BaseEntity {
                 .setId(KeyFactory.keyToString(getKey()))
                 .addField(Field.newBuilder().setName("name").setText(getName()))
                 .addField(Field.newBuilder().setName("email").setText(getEmail()))
-                .addField(Field.newBuilder().setName("fullName").setText(getForename() + "" + getSurname()))
+                .addField(Field.newBuilder().setName("fullName").setText(getForename() + " " + getSurname()))
                 .addField(Field.newBuilder().setName("bio").setText(getBio()))
                 .addField(Field.newBuilder().setName("phone").setText(getPhone()));
         if (latitude != null && longitude != null) {
             builder.addField(Field.newBuilder().setName("point").setGeoPoint(
                     new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
         }
+        for(String suburb : suburbList) {
+            builder.addField(Field.newBuilder().setName("suburb").setText(
+                    StringUtils.isBlank(suburb) ? "" : suburb));
+        }
 
         builder.addField(Field.newBuilder().setName("address").setText(
                 StringUtils.isBlank(getFormatAddress()) ? "" : getFormatAddress()))
-                .addField(Field.newBuilder().setName("suburb").setText(
-                        StringUtils.isBlank(getSuburb()) ? "" : getSuburb()))
                 .addField(Field.newBuilder().setName("postcode").setText(
                         StringUtils.isBlank(getPostcode()) ? "" : getPostcode()))
                 .addField(Field.newBuilder().setName("mobile").setText(getMobile()));

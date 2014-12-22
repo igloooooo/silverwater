@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import javax.persistence.Query;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -44,16 +45,16 @@ public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
             broker.setFormatAddress(result.getFormatAddress());
         }
         String contactNumber = StringUtils.isNotBlank(broker.getMobile()) ? broker.getMobile() : "0000";
-        broker.setCanonicalSlugId(broker.getForename() + " " + broker.getSurname() + " " + contactNumber);
+        broker.setCanonicalSlugId(broker.getForename() + "-" + broker.getSurname() + "-" + contactNumber);
         add(broker);
 
         getEntityManager().flush();
         // get full index
-        Index merchantIndex = indexServiceHelp.getBrokerIndex();
+        Index brokerIndex = indexServiceHelp.getBrokerIndex();
         // get geo index
         Index geoIndex = indexServiceHelp.getGeoMerchantIndex();
         try {
-            merchantIndex.put(broker.toFullTextDocument());
+            brokerIndex.put(broker.toFullTextDocument());
         } catch (PutException e) {
             throw new AppX("Can't create document for " + broker.getKey(), e);
         }
@@ -81,8 +82,42 @@ public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
 
     @Override
     public List<Broker> findAllBrokers() {
-        List<Broker> result = findAll();
-        LOG.info("size:" + result.size());
-        return result;
+        Query q = getEntityManager()
+                .createQuery("select q from Broker q " +
+                        "where q.valid=true ");
+        List<Broker> result = q.getResultList();
+        if (result.size() <= 0) {
+            return new ArrayList<>();
+        } else {
+            return result;
+        }
+    }
+
+    @Override
+    public Broker findByName(String name) {
+        Query q = getEntityManager()
+                .createQuery("select q from Broker q " +
+                        "where q.name=:name ")
+                .setParameter("name", name);
+        List<Broker> result = q.getResultList();
+        if (result.size() <= 0) {
+            return null;
+        } else {
+            return result.get(0);
+        }
+    }
+
+    @Override
+    public Broker findByPhone(String phone) {
+        Query q = getEntityManager()
+                .createQuery("select q from Broker q " +
+                        "where q.phone=:phone ")
+                .setParameter("phone", phone);
+        List<Broker> result = q.getResultList();
+        if (result.size() <= 0) {
+            return null;
+        } else {
+            return result.get(0);
+        }
     }
 }

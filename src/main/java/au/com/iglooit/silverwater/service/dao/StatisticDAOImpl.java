@@ -38,6 +38,11 @@ public class StatisticDAOImpl extends BaseRepository<Statistic> implements Stati
     }
 
     @Override
+    public void initBroker() {
+        initClass(Broker.class);
+    }
+
+    @Override
     public void addBroker() {
         addClass(Broker.class);
     }
@@ -60,6 +65,21 @@ public class StatisticDAOImpl extends BaseRepository<Statistic> implements Stati
             statistic.setStatisticCount(statistic.getStatisticCount() + 1);
             statistic.setUpdateDate(DateUtils.getNow());
             update(statistic);
+        }
+    }
+
+    private void initClass(Class clazz) {
+        Query q = getEntityManager()
+                .createQuery("select q from Statistic q " +
+                        "where q.statisticName=:statisticName ")
+                .setParameter("statisticName", clazz.getName());
+        List<Statistic> result = q.getResultList();
+        if (result.size() <= 0) {
+            Statistic statistic = new Statistic();
+            statistic.setStatisticCount(0L);
+            statistic.setStatisticName(clazz.getName());
+            statistic.setUpdateDate(DateUtils.getNow());
+            add(statistic);
         }
     }
 

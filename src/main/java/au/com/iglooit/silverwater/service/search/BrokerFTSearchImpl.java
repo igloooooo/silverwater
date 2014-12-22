@@ -3,12 +3,9 @@ package au.com.iglooit.silverwater.service.search;
 import au.com.iglooit.silverwater.model.entity.Broker;
 import au.com.iglooit.silverwater.service.IndexServiceHelp;
 import au.com.iglooit.silverwater.service.dao.BrokerDAO;
-import au.com.iglooit.silverwater.utils.ListUtils;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.search.Index;
-import com.google.appengine.api.search.Results;
-import com.google.appengine.api.search.ScoredDocument;
+import com.google.appengine.api.search.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -30,13 +27,21 @@ public class BrokerFTSearchImpl implements BrokerFTSearch {
             result = brokerDAO.findAllBrokers();
         } else {
             Index merchantIndex = indexServiceHelp.getBrokerIndex();
-            Results<ScoredDocument> results = merchantIndex.search(keyword.replaceAll("-", " "));
+            QueryOptions options = QueryOptions.newBuilder()
+                    .setLimit(size)
+                    .setOffset(from)
+                    .build();
+            Query query = Query.newBuilder()
+                    .setOptions(options)
+                    .build(keyword.replaceAll("-", " "));
+
+            Results<ScoredDocument> results = merchantIndex.search(query);
 
             // Iterate over the documents in the results
             List<Broker> merchantList = new ArrayList<Broker>();
             for (ScoredDocument document : results) {
                 Key key = KeyFactory.stringToKey(document.getId());
-                Broker merchant = (Broker) brokerDAO.findByKey(key);
+                Broker merchant = brokerDAO.findByKey(key);
                 if (merchant != null) {
                     merchantList.add(merchant);
                 }
@@ -44,10 +49,6 @@ public class BrokerFTSearchImpl implements BrokerFTSearch {
 
             result = merchantList;
         }
-        if (from >= 0 && size > 0) {
-            return (List<Broker>) ListUtils.getSubList(result, from, size);
-        } else {
-            return result;
-        }
+        return result;
     }
 }

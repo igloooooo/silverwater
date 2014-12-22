@@ -8,4 +8,6 @@ public interface BrokerDAO extends IEntityService<Broker> {
     void createBroker(Broker broker);
     Broker findByCanonicalSlugId(String canonicalSlugId);
     List<Broker> findAllBrokers();
+    Broker findByName(String name);
+    Broker findByPhone(String phone);
 }
