@@ -2,7 +2,7 @@
 
     <!-- default -->
     <decorator name="default" page="default.jsp">
-        <pattern>/broker</pattern>
+        <pattern>/broker*</pattern>
         <pattern>/search*</pattern>
     </decorator>
     <!-- home -->

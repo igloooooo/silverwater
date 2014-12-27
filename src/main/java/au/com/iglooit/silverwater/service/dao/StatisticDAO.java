@@ -12,4 +12,10 @@ public interface StatisticDAO extends IEntityService<Statistic> {
     void addBroker();
 
     Long countBroker();
+
+    void initEnquire();
+
+    void addEnquire();
+
+    Long countEnquire();
 }

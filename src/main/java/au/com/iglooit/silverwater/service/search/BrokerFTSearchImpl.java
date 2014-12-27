@@ -31,9 +31,58 @@ public class BrokerFTSearchImpl implements BrokerFTSearch {
                     .setLimit(size)
                     .setOffset(from)
                     .build();
+            StringBuilder queryStringBuilder = new StringBuilder();
+            if (StringUtils.isNotBlank(keyword)) {
+                queryStringBuilder.append("\"").append(keyword.replaceAll("-", " ")).append("\"");
+            }
             Query query = Query.newBuilder()
                     .setOptions(options)
-                    .build(keyword.replaceAll("-", " "));
+                    .build(queryStringBuilder.toString());
+
+            Results<ScoredDocument> results = merchantIndex.search(query);
+
+            // Iterate over the documents in the results
+            List<Broker> merchantList = new ArrayList<Broker>();
+            for (ScoredDocument document : results) {
+                Key key = KeyFactory.stringToKey(document.getId());
+                Broker merchant = brokerDAO.findByKey(key);
+                if (merchant != null) {
+                    merchantList.add(merchant);
+                }
+            }
+
+            result = merchantList;
+        }
+        return result;
+    }
+
+    @Override
+    public List<Broker> searchByKeyWord(String keyword, String suburb, int from, int size) {
+        List<Broker> result = new ArrayList<>();
+        if (StringUtils.isBlank(keyword)) {
+            result = brokerDAO.findAllBrokers();
+        } else {
+            Index merchantIndex = indexServiceHelp.getBrokerIndex();
+            QueryOptions options = QueryOptions.newBuilder()
+                    .setLimit(size)
+                    .setOffset(from)
+                    .build();
+            StringBuilder queryStringBuilder = new StringBuilder();
+            if (StringUtils.isNotBlank(keyword)) {
+                queryStringBuilder.append("\"").append(keyword.replaceAll("-", " ")).append("\"");
+                if(StringUtils.isNotBlank(suburb)) {
+                    queryStringBuilder.append(" AND suburb=");
+                    queryStringBuilder.append("\"").append(suburb.replaceAll("-", " ")).append("\"");
+                }
+            } else if (StringUtils.isNotBlank(suburb)) {
+                queryStringBuilder.append("suburb=");
+                queryStringBuilder.append("\"").append(suburb.replaceAll("-", " ")).append("\"");
+            } else {
+
+            }
+            Query query = Query.newBuilder()
+                    .setOptions(options)
+                    .build(queryStringBuilder.toString());
 
             Results<ScoredDocument> results = merchantIndex.search(query);
 

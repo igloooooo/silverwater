@@ -24,7 +24,8 @@ public class BrokerConfigureService {
     private static final Integer SURNAME = 1;
     private static final Integer TITLE = 2;
     private static final Integer PHONE = 3;
-    private static final Integer SUBURB = 4;
+    private static final Integer IMAGE_FILE_NAME = 4;
+    private static final Integer SUBURB = 5;
 
     @Resource
     private BrokerImportService brokerImportService;
@@ -89,6 +90,7 @@ public class BrokerConfigureService {
         vo.setPhone(nextLine[PHONE].trim());
         vo.setMobile(nextLine[PHONE].trim());
         vo.setTitle(nextLine[TITLE].trim());
+        vo.setImageFileName(nextLine[IMAGE_FILE_NAME].trim());
         if (nextLine.length > SUBURB) {
             for (int i = SUBURB; i < nextLine.length; i++) {
                 vo.getSuburbList().add(nextLine[i].trim());

@@ -24,7 +24,7 @@
                     <h2 class="post-title">${broker.name}</h2>
 
                     <p class="post-excerpt">${broker.title}</p>
-                    <p class="post-excerpt">${broker.description}</p>
+                    <p class="post-excerpt">${broker.bio}</p>
                     <ul class="post-content-detail">
                         <li>
                             <span>Rating</span>
@@ -46,44 +46,7 @@
             <div class="one-third">
 
 
-                <div id="searchmodule">
-                    <ul class="tab-control">
-                        <li class="ui-tabs-selected"><a href="#hotel-search">Find Hotel</a></li>
-                    </ul>
-                    <div id="hotel-search" class="tab-content">
-                        <form action="#">
-                            <div class="field">
-                                <label for="hotel-to">City:</label>
-                                <input type="text" id="hotel-to" class="input-text" placeholder="Destination"
-                                       autocomplete="off"/>
-                            </div>
-                            <div class="field half">
-                                <label for="hotel-depart">Check-In:</label>
-                                <input type="text" id="hotel-depart" class="input-text input-cal" placeholder="2012-10-01"
-                                       autocomplete="off"/>
-                            </div>
-                            <div class="field half even">
-                                <label for="hotel-return">Check-Out:</label>
-                                <input type="text" id="hotel-return" class="input-text input-cal" placeholder="2012-10-01"
-                                       autocomplete="off"/>
-                            </div>
-                            <div class="field half">
-                                <label for="hotel-class">Class:</label>
-                                <input type="text" id="hotel-class" class="input-text" autocomplete="off"/>
-                            </div>
-                            <div class="field half even">
-                                <label for="hotel-room">Person:</label>
-                                <select id="hotel-room">
-                                    <option>1</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="submit">Search</button>
-                            <br class="clear"/>
-                        </form>
-                    </div>
-                    <!--hotel search -->
-                </div>
-                <!--searchmodule -->
+                <%@include file="left-search-bar.jsp"%>
 
                 <div class="widget similiar-place">
                     <div class="h3 widget-title">

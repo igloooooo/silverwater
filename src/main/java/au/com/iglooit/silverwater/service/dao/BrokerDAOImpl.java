@@ -6,6 +6,7 @@ import au.com.iglooit.silverwater.model.vo.AddressVO;
 import au.com.iglooit.silverwater.repository.BaseRepository;
 import au.com.iglooit.silverwater.service.IndexServiceHelp;
 import au.com.iglooit.silverwater.service.search.GeoSearchService;
+import au.com.iglooit.silverwater.utils.DateUtils;
 import com.google.appengine.api.search.Index;
 import com.google.appengine.api.search.PutException;
 import org.apache.commons.lang.StringUtils;
@@ -24,6 +25,7 @@ import java.util.List;
 @Transactional
 public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
     private static final Logger LOG = LoggerFactory.getLogger(BrokerDAOImpl.class);
+
     @Resource
     private GeoSearchService geoSearchService;
     @Resource
@@ -64,6 +66,12 @@ public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
         } catch (PutException e) {
             throw new AppX("Can't create document for " + broker.getKey(), e);
         }
+    }
+
+    @Override
+    public void update(Broker entity) {
+        entity.setLastUpdateTime(DateUtils.getNow());
+        super.update(entity);
     }
 
     @Override
@@ -119,5 +127,32 @@ public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
         } else {
             return result.get(0);
         }
+    }
+
+    @Override
+    public List<Broker> loadMostPopular() {
+        Query q = getEntityManager().createQuery("select q from Broker q " +
+                "where q.valid=true order by q.enquireCount desc ")
+                .setFirstResult(0)
+                .setMaxResults(20);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Broker> loadNew() {
+        Query q = getEntityManager().createQuery("select q from Broker q " +
+                "where q.valid=true order by q.createdOn desc ")
+                .setFirstResult(0)
+                .setMaxResults(20);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Broker> loadLatestUpdate() {
+        Query q = getEntityManager().createQuery("select q from Broker q " +
+                "where q.valid=true order by q.lastUpdateTime desc ")
+                .setFirstResult(0)
+                .setMaxResults(20);
+        return q.getResultList();
     }
 }

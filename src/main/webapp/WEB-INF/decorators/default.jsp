@@ -21,6 +21,7 @@
 ================================================== -->
 <link rel="stylesheet" href="/assets/css/style.css" />
 <link rel="stylesheet" href="/assets/css/responsive.css" />
+<link rel="stylesheet" href="/assets/css/select2.css" />
 
 <!-- Java Script
 ================================================== -->
@@ -63,6 +64,9 @@
 	
 </div>
 <!--wrapper -->
-
+<script src="${pageContext.request.contextPath}/assets/js/handlebars-v2.0.0.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.raty.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/prettify.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/select2.min.js"></script>
 </body>
 </html>

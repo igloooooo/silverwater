@@ -10,4 +10,7 @@ public interface BrokerDAO extends IEntityService<Broker> {
     List<Broker> findAllBrokers();
     Broker findByName(String name);
     Broker findByPhone(String phone);
+    List<Broker> loadMostPopular();
+    List<Broker> loadNew();
+    List<Broker> loadLatestUpdate();
 }

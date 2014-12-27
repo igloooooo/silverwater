@@ -17,6 +17,7 @@ public class StatisticInitService {
     private static final Logger LOG = LoggerFactory.getLogger(StatisticInitService.class);
     @Resource
     private StatisticDAO statisticDAO;
+
     @PostConstruct
     public void init() throws Exception {
         WebProperties webProperties = WebProperties.getInstance();
@@ -32,6 +33,7 @@ public class StatisticInitService {
 
     private void initStatic() {
         statisticDAO.initBroker();
+        statisticDAO.initEnquire();
     }
 
 }

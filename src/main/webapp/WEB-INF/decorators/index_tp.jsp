@@ -26,6 +26,7 @@
     ================================================== -->
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/select2.css" />
     <%--<link href="/assets/wro/basic-header.min.css" rel="stylesheet">--%>
 
     <!-- Java Script

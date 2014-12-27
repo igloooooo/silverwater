@@ -12,49 +12,13 @@
 </div>
 <!--subheader -->
 
-
+<input type="hidden" id="suburb_value" value="${param.suburb}">
+<input type="hidden" id="key_value" value="${param.q}">
 <div id="content">
     <div class="one-third">
 
 
-        <div id="searchmodule">
-            <ul class="tab-control">
-                <li class="ui-tabs-selected"><a href="#hotel-search">Find Hotel</a></li>
-            </ul>
-            <div id="hotel-search" class="tab-content">
-                <form action="#">
-                    <div class="field">
-                        <label for="hotel-to">City:</label>
-                        <input type="text" id="hotel-to" class="input-text" placeholder="Destination"
-                               autocomplete="off"/>
-                    </div>
-                    <div class="field half">
-                        <label for="hotel-depart">Check-In:</label>
-                        <input type="text" id="hotel-depart" class="input-text input-cal" placeholder="2012-10-01"
-                               autocomplete="off"/>
-                    </div>
-                    <div class="field half even">
-                        <label for="hotel-return">Check-Out:</label>
-                        <input type="text" id="hotel-return" class="input-text input-cal" placeholder="2012-10-01"
-                               autocomplete="off"/>
-                    </div>
-                    <div class="field half">
-                        <label for="hotel-class">Class:</label>
-                        <input type="text" id="hotel-class" class="input-text" autocomplete="off"/>
-                    </div>
-                    <div class="field half even">
-                        <label for="hotel-room">Person:</label>
-                        <select id="hotel-room">
-                            <option>1</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="submit">Search</button>
-                    <br class="clear"/>
-                </form>
-            </div>
-            <!--hotel search -->
-        </div>
-        <!--searchmodule -->
+        <%@include file="left-search-bar.jsp"%>
 
         <div class="widget refine-search">
             <div class="h3 widget-title">
@@ -138,42 +102,72 @@
         <c:forEach items="${brokerList}" var="broker">
             <div class="post-item post-thumb-hor">
                 <div class="image-place">
-                    <img src="images/uploads/620x220/temple-kyoto.jpg" alt="image"/></div>
+                    <img src="${broker.imageFileName}" alt="image"/>
+                </div>
                 <div class="post-content">
                     <h2 class="post-title">${broker.name}</h2>
-
-                    <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla mi
-                        et eros
-                        ornare quis molestie magna adipiscing. Sed a urna nulla, non bibendum nulla. Praesent vitae
-                        vehicula
-                        eros.</p>
+                    <p class="post-excerpt">${broker.title}</p>
+                    <p class="post-excerpt">${broker.bio}</p>
                     <ul class="post-content-detail">
                         <li>
                             <span>Rating</span>
                             <strong class="sprite-stars star4">4 Stars</strong></li>
                         <li>
-                            <span>Start From</span>
-                            <strong class="price">$ 30</strong></li>
+                            <span>Contact Number:</span>
+                            <strong class="price">${broker.mobile}</strong></li>
                     </ul>
                 </div>
                 <div class="post-meta">
-                    <span class="icon-place">Kyoto, Japan</span>
+                    <span class="icon-place">
+                        <c:forEach items="${broker.suburbList}" var="suburb">
+                            ${suburb},
+                        </c:forEach>
+                    </span>
                     <span class="offer-type">All Inclusive</span>
                     <a class="read-more" href="/broker/${broker.canonicalSlugId}">Read More</a></div>
             </div>
             <!--post item -->
         </c:forEach>
 
-        <!--post item -->
-
         <p class="pagination">
-            <a class="current"><b>Load More</b></a>
+            <a class="current" id="moreButton"><b>Load More Brokers</b></a>
         </p>
     </div>
     <!--two third -->
 
     <br class="clear"/>
 </div>
+<script id="broker-template" type="text/x-handlebars-template">
+    {{#each brokers}}
+    <div class="post-item post-thumb-hor">
+        <div class="image-place">
+            <img src="{{imageFileName}}" alt="image"/>
+        </div>
+        <div class="post-content">
+            <h2 class="post-title">{{name}}</h2>
+            <p class="post-excerpt">{{title}}</p>
+            <p class="post-excerpt">{{bio}}</p>
+            <ul class="post-content-detail">
+                <li>
+                    <span>Rating</span>
+                    <strong class="sprite-stars star4">4 Stars</strong></li>
+                <li>
+                    <span>Contact Number</span>
+                    <strong class="price">{{mobile}}</strong></li>
+            </ul>
+        </div>
+        <div class="post-meta">
+                    <span class="icon-place">
+                        {{#each suburbList}}
+                            {{suburb}},
+                        {{/each}}
+                    </span>
+            <span class="offer-type">All Inclusive</span>
+            <a class="read-more" href="/broker/{{broker.canonicalSlugId}}">Read More</a></div>
+    </div>
+    {{/each}}
+</script>
 <!--content -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/broker/brokerSearch.js"></script>
 </body>
 </html>

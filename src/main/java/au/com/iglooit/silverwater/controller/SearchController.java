@@ -23,10 +23,17 @@ public class SearchController {
      *
      * @return
      */
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/search", method = RequestMethod.GET, params = "q")
     public ModelAndView quickSearch(@RequestParam("q") String key) {
         ModelAndView modelAndView = new ModelAndView("broker/brokerSearch");
-        modelAndView.addObject("brokerList", brokerFTSearch.searchByKeyWord(key, 0, 10));
+        modelAndView.addObject("brokerList", brokerFTSearch.searchByKeyWord(key, 0, 20));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET, params = {"q", "suburb"})
+    public ModelAndView fullSearch(@RequestParam("q") String key, @RequestParam("suburb") String suburb) {
+        ModelAndView modelAndView = new ModelAndView("broker/brokerSearch");
+        modelAndView.addObject("brokerList", brokerFTSearch.searchByKeyWord(key, suburb, 0, 20));
         return modelAndView;
     }
 }

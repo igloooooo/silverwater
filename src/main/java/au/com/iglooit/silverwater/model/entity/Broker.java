@@ -16,7 +16,7 @@ import java.util.Set;
 
 @Entity
 public class Broker extends BaseEntity {
-    private static final String DEFAULT_DEFAULT_IMG = "/assets/img/default-broker.jpeg";
+    private static final String DEFAULT_DEFAULT_IMG = "https://googledrive.com/host/0B8FRF1S9z_A7TGxPeGdWeHJjYVU";
     private String name;
     private String surname;
     private String forename;
@@ -41,6 +41,8 @@ public class Broker extends BaseEntity {
     private String imageResourceId;
     private String imageFileName = DEFAULT_DEFAULT_IMG;
     private String canonicalSlugId;
+    private long enquireCount = 0L;
+    private Date lastEnquire;
 
     public static String getDefaultDefaultImg() {
         return DEFAULT_DEFAULT_IMG;
@@ -236,6 +238,22 @@ public class Broker extends BaseEntity {
 
     public void setSuburbList(Set<String> suburbList) {
         this.suburbList = suburbList;
+    }
+
+    public long getEnquireCount() {
+        return enquireCount;
+    }
+
+    public void setEnquireCount(long enquireCount) {
+        this.enquireCount = enquireCount;
+    }
+
+    public Date getLastEnquire() {
+        return lastEnquire;
+    }
+
+    public void setLastEnquire(Date lastEnquire) {
+        this.lastEnquire = lastEnquire;
     }
 
     /**

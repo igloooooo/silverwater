@@ -17,26 +17,26 @@
         <div class="tag-filter">
             <ul>
                 <li><a class="selected" data-filter="*">All</a></li>
-                <li><a data-filter=".travel">Travel</a></li>
-                <li><a data-filter=".holidays">Holidays</a></li>
-                <li><a data-filter=".hotel">Hotel Deals</a></li>
+                <li><a data-filter=".new-broker">New</a></li>
+                <li><a data-filter=".most-popular">Most Popular</a></li>
+                <li><a data-filter=".latest-update">Latest Update</a></li>
             </ul>
         </div>
 
-        <c:forEach items="${brokerList}" var="broker">
+        <c:forEach items="${brokerList}" var="brokerVO">
         <div class="tag-filter-container">
-            <div class="one-fourth travel">
+            <div class="one-fourth ${brokerVO.category}">
                 <div class="post-item">
                     <div class="image-place">
                         <img src="images/uploads/220x135/auckland-city.jpg" alt="image"/></div>
                     <div class="post-content">
-                        <h2 class="post-title"><a href="browse-detail.html">${broker.name}</a></h2>
+                        <h2 class="post-title"><a href="browse-detail.html">${brokerVO.broker.name}</a></h2>
 
-                        <p class="post-excerpt">${broker.title}</p>
+                        <p class="post-excerpt">${brokerVO.broker.title}</p>
                     </div>
                     <div class="post-meta">
                         <span class="comment-count">12 Comments</span>
-                        <a class="read-more" href="/broker/${broker.canonicalSlugId}">Read More</a></div>
+                        <a class="read-more" href="/broker/${brokerVO.broker.canonicalSlugId}">Read More</a></div>
                 </div>
             </div>
 

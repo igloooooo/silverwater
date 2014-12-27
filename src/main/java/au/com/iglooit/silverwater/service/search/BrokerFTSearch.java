@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BrokerFTSearch {
     public List<Broker> searchByKeyWord(String keyword, int from, int size);
+    public List<Broker> searchByKeyWord(String keyword, String suburb, int from, int size);
 }

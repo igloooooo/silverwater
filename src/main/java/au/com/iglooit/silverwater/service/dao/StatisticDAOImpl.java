@@ -1,6 +1,7 @@
 package au.com.iglooit.silverwater.service.dao;
 
 import au.com.iglooit.silverwater.model.entity.Broker;
+import au.com.iglooit.silverwater.model.entity.Enquire;
 import au.com.iglooit.silverwater.model.entity.Statistic;
 import au.com.iglooit.silverwater.repository.BaseRepository;
 import au.com.iglooit.silverwater.utils.DateUtils;
@@ -50,6 +51,21 @@ public class StatisticDAOImpl extends BaseRepository<Statistic> implements Stati
     @Override
     public Long countBroker() {
         return countClass(Broker.class);
+    }
+
+    @Override
+    public void initEnquire() {
+        initClass(Enquire.class);
+    }
+
+    @Override
+    public void addEnquire() {
+        addClass(Enquire.class);
+    }
+
+    @Override
+    public Long countEnquire() {
+        return countClass(Enquire.class);
     }
 
     private void addClass(Class clazz) {

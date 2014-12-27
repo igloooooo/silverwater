@@ -1,9 +1,9 @@
 package au.com.iglooit.silverwater.model.vo;
 
 import au.com.iglooit.silverwater.model.entity.Broker;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +25,7 @@ public class BrokerImportVO implements Serializable {
     private String postCode;
     private Set<String> suburbList = new HashSet<>();
     private String title;
+    private String imageFileName;
 
     public BrokerImportVO() {
 
@@ -142,6 +143,14 @@ public class BrokerImportVO implements Serializable {
         this.title = title;
     }
 
+    public String getImageFileName() {
+        return imageFileName;
+    }
+
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
+
     public Broker toBroker() {
         Broker broker = new Broker();
         broker.setAddress1(address1);
@@ -158,6 +167,9 @@ public class BrokerImportVO implements Serializable {
         broker.setSurname(surname);
         broker.setSuburbList(suburbList);
         broker.setTitle(title);
+        if (StringUtils.isNotBlank(imageFileName)) {
+            broker.setImageFileName(imageFileName);
+        }
         return broker;
     }
 }
