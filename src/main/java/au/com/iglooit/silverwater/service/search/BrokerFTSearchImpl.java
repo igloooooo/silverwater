@@ -46,7 +46,7 @@ public class BrokerFTSearchImpl implements BrokerFTSearch {
             for (ScoredDocument document : results) {
                 Key key = KeyFactory.stringToKey(document.getId());
                 Broker merchant = brokerDAO.findByKey(key);
-                if (merchant != null) {
+                if (merchant != null && merchant.getValid()) {
                     merchantList.add(merchant);
                 }
             }

@@ -4,13 +4,16 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.search.Document;
 
 import javax.persistence.Basic;
+import javax.persistence.Entity;
 import java.util.Date;
 
 /**
  * Created by nicholaszhu on 24/12/2014.
  */
+@Entity
 public class Enquire extends NoGeoBaseEntity {
     private String enquireName;
+    private String enquireTitle;
     private String enquireEmail;
     private String enquireMobile;
     @Basic
@@ -64,6 +67,14 @@ public class Enquire extends NoGeoBaseEntity {
 
     public void setEnquireDescription(String enquireDescription) {
         this.enquireDescription = enquireDescription;
+    }
+
+    public String getEnquireTitle() {
+        return enquireTitle;
+    }
+
+    public void setEnquireTitle(String enquireTitle) {
+        this.enquireTitle = enquireTitle;
     }
 
     @Override

@@ -5,10 +5,12 @@
     <persistence-unit name="silverwater">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
         <class>au.com.iglooit.silverwater.model.entity.BaseEntity</class>
+        <class>au.com.iglooit.silverwater.model.entity.NoGeoBaseEntity</class>
         <class>au.com.iglooit.silverwater.model.entity.IGUser</class>
         <class>au.com.iglooit.silverwater.model.entity.Broker</class>
         <class>au.com.iglooit.silverwater.model.entity.Suburb</class>
         <class>au.com.iglooit.silverwater.model.entity.Statistic</class>
+        <class>au.com.iglooit.silverwater.model.entity.Enquire</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>

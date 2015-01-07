@@ -13,4 +13,5 @@ public interface BrokerDAO extends IEntityService<Broker> {
     List<Broker> loadMostPopular();
     List<Broker> loadNew();
     List<Broker> loadLatestUpdate();
+    List<Broker> findBySuburb(String suburb);
 }

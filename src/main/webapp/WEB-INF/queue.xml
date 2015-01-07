@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <queue-entries>
     <queue>
-        <name>quote-q</name>
+        <name>enquire-email-q</name>
         <rate>1/s</rate>
     </queue>
     <queue>

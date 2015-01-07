@@ -4,6 +4,7 @@
     <decorator name="default" page="default.jsp">
         <pattern>/broker*</pattern>
         <pattern>/search*</pattern>
+        <pattern>/enquire*</pattern>
     </decorator>
     <!-- home -->
 

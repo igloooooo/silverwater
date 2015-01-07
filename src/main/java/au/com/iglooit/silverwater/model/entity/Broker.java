@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -258,6 +257,7 @@ public class Broker extends BaseEntity {
 
     /**
      * address1 + address2 + address3
+     *
      * @return
      */
     public String convertToAddress() {
@@ -277,10 +277,13 @@ public class Broker extends BaseEntity {
             builder.addField(Field.newBuilder().setName("point").setGeoPoint(
                     new GeoPoint(latitude.doubleValue(), longitude.doubleValue())));
         }
-        for(String suburb : suburbList) {
-            builder.addField(Field.newBuilder().setName("suburb").setText(
-                    StringUtils.isBlank(suburb) ? "" : suburb));
+        StringBuilder suburbs = new StringBuilder();
+        for (String suburb : suburbList) {
+            suburbs.append(suburb).append(" ");
+
         }
+        builder.addField(Field.newBuilder().setName("suburbs").setText(
+                suburbs.toString()));
 
         builder.addField(Field.newBuilder().setName("address").setText(
                 StringUtils.isBlank(getFormatAddress()) ? "" : getFormatAddress()))

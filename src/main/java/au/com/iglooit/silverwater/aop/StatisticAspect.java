@@ -35,7 +35,7 @@ public class StatisticAspect {
     }
 
     @After("execution(* au.com.iglooit.silverwater.service.dao.EnquireDAO.createEnquire(..))&& args(enquire)")
-    public void afterCreateMerchant(Enquire enquire) {
+    public void afterCreateEnquire(Enquire enquire) {
         LOG.info("parameter is " + enquire.getBrokerKey().toString());
         statisticDAO.addEnquire();
         Broker broker = brokerDAO.findByKey(enquire.getBrokerKey());

@@ -11,8 +11,10 @@
 	</div>
 	<div id="searchbox">
 		<form action="/search">
-			<input type="text" name="q" placeholder="Search" />
-			<button type="submit"></button>
+            <div style="float:left;">
+                <input type="text" name="q" placeholder="Search" />
+                <button type="submit"></button>
+            </div>
 		</form>
 	</div>
 	<div id="navigation">

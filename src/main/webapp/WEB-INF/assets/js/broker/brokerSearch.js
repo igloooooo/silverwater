@@ -6,17 +6,17 @@ jQuery(document).ready(function ($) {
     var from = 0;
     var suburb = $('#suburb_value').val();
     var q = $('#key_value').val();
-    var source   = $("#broker-template").html();
+    var source = $("#broker-template").html();
     var template = Handlebars.compile(source);
-    $('#moreButton').click(function(){
+    $('#moreButton').click(function () {
         from = size + from;
         $.ajax({
-            type:"GET",
-            url:"/ws/search?q="+q+"&suburb=" + suburb + "&from=" + from + "&size=10",
-            contentType:'application/json',
-            success:function (data) {
+            type: "GET",
+            url: "/ws/search?q=" + q + "&suburb=" + suburb + "&from=" + from + "&size=10",
+            contentType: 'application/json',
+            success: function (data) {
                 if (data && data.length > 0) {
-                    $('.pagination').before(template({brokers:data}));
+                    $('.pagination').before(template({brokers: data}));
                 }
                 else {
 
@@ -25,3 +25,4 @@ jQuery(document).ready(function ($) {
         });
     })
 });
+

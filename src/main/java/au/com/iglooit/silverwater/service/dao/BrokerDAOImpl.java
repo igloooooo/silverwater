@@ -155,4 +155,13 @@ public class BrokerDAOImpl extends BaseRepository<Broker> implements BrokerDAO {
                 .setMaxResults(20);
         return q.getResultList();
     }
+
+    @Override
+    public List<Broker> findBySuburb(String suburb) {
+        Query q = getEntityManager().createQuery("select q from Broker q " +
+                "where q.valid=true and  order by q.lastUpdateTime desc ")
+                .setFirstResult(0)
+                .setMaxResults(20);
+        return q.getResultList();
+    }
 }

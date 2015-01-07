@@ -3,15 +3,15 @@
 		<div class="wrap">
 			<div class="one-fourth">
 				<div class="theme-logo"><strong>Broker</strong>Map</div>
-				<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				<p>Integer hendrerit bibendum luctus. Nam vel porttitor leo</p>
+				<p>BrokerMap is a website which focus on quick find and locate brokers. You can search broker based on a few different way.</p>
+				<p>BrokerMap also provides enquire service.</p>
 			</div>
 			
 			<div class="one-fourth">
 				<h3>Quick Links</h3>
 				<ul>
-					<li><a href="#">Browse Cheap Holidays</a></li>
-					<li><a href="#">Holiday Travel Guide</a></li>
+					<li><a href="/broker">Browse All Brokers</a></li>
+					<li><a href="/how-it-works">How It Works</a></li>
 					<li><a href="#">Holiday Travel Blog</a></li>
 					<li><a href="#">Compares Holidays Packets</a></li>
 				</ul>
@@ -20,9 +20,9 @@
 			<div class="one-fourth">
 				<h3>Our Office</h3>
 				<ul>
-					<li class="glyph-home">Sudirman Kav.52-53<br>Central Business Distric<br>South Jakarta 12040</li>
-					<li class="glyph-briefcase">Phone : +621 760 4020</li>
-					<li class="glyph-envelope">Email : info@domain.com</li>
+					<li class="glyph-home">Suite 1B, 185D Forest Road,<br> Hurstville<br>NSW 2220</li>
+					<li class="glyph-briefcase">Phone : +61 433 274 987</li>
+					<li class="glyph-envelope">Email : admin.brokermap@gmail.com</li>
 				</ul>
 			</div>
 			
@@ -45,12 +45,12 @@
 	<section id="subfooter">
 		<div class="wrap">
 			<div class="left">
-				Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+				Copyright &copy; 2014.ZumaIT All rights reserved.
 			</div>
 			
 			<div class="foot-links right">
-				<a href="#">Terms and Condition</a>
-				<a href="#">Privacy Policy</a>
+				<a href="/terms-condition">Terms and Condition</a>
+				<a href="/privacy-policy">Privacy Policy</a>
 			</div>
 			
 			<br class="clear" />

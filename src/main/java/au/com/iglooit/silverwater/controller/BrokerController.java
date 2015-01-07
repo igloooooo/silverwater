@@ -3,6 +3,7 @@ package au.com.iglooit.silverwater.controller;
 import au.com.iglooit.silverwater.model.entity.Broker;
 import au.com.iglooit.silverwater.service.dao.BrokerDAO;
 import au.com.iglooit.silverwater.service.search.BrokerAllService;
+import au.com.iglooit.silverwater.service.search.SuggestBrokerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class BrokerController {
     private BrokerDAO brokerDAO;
     @Resource
     private BrokerAllService brokerAllService;
+    @Resource
+    private SuggestBrokerService suggestBrokerService;
 
     /**
      * broker list page
@@ -38,6 +41,7 @@ public class BrokerController {
         ModelAndView modelAndView = new ModelAndView("broker/brokerDetails");
         Broker broker = brokerDAO.findByCanonicalSlugId(canonicalSlugId);
         modelAndView.addObject("broker", broker);
+        modelAndView.addObject("similarBrokers", suggestBrokerService.similarBrokers(broker));
         return modelAndView;
     }
 }

@@ -68,5 +68,6 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery.raty.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/prettify.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/select2.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/silverwater.js"></script>
 </body>
 </html>
